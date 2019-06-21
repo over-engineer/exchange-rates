@@ -252,9 +252,9 @@ const convert = (amount, fromCurrency, toCurrency, date = 'latest') => {
     let instance = new ExchangeRates();
 
     if (date === 'latest') {
-        instance = instance.latest();
+        instance.latest();
     } else {
-        instance = instance.at(date);
+        instance.at(date);
     }
 
     return instance.base(fromCurrency).symbols(toCurrency).fetch().then(rate => rate * amount);
