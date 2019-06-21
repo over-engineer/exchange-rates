@@ -7,6 +7,10 @@
     "test": "NODE_ENV=test mocha"
   },
   "author": "dn0z",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dn0z/exchange-rates.git""
+  },
   "license": "MIT",
   "dependencies": {
     "date-fns": "^1.30.1",
