@@ -231,7 +231,7 @@ If you have spotted any bugs, or would like to request additional features from 
 
 ## Credits
 
-- Thanks to @madisvain and all of the [Exchange Rates API](https://github.com/exchangeratesapi/exchangeratesapi) contributors for creating this awesome API
+- Thanks to [@madisvain](https://github.com/madisvain) and all of the [Exchange Rates API](https://github.com/exchangeratesapi/exchangeratesapi) contributors for creating this awesome API
 - A big chunk of this README was heavily ~stolen from~ inspired by [this repo](https://github.com/benmajor/ExchangeRatesAPI), an API wrapper for PHP
 
 ## License
