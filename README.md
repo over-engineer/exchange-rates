@@ -145,7 +145,7 @@ example();
 const { exchangeRates } = require('exchange-rates-api');
 
 // Grab the url we're going to request
-let url = await exchangeRates()
+let url = exchangeRates()
     .from('2018-01-01').to('2018-09-01')
     .base('USD').symbols(['EUR', 'GBP'])
     .url;
