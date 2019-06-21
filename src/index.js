@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+require('isomorphic-fetch');
 const { getYear, isAfter } = require('date-fns');
 
 const ExchangeRatesError = require('./exchange-rates-error');
@@ -184,7 +184,11 @@ class ExchangeRates {
         this._validate();
 
         return fetch(this._buildUrl())
-            .then(response => response.json())
+            .then(response => {
+                if (response.status !== 200)
+                    throw new ExchangeRatesError(`API returned a bad response (HTTP ${response.status})`);
+                return response.json();
+            })
             .then(data => {
                 const keys = Object.keys(data.rates);
                 return (keys.length === 1) ? data.rates[keys[0]] : data.rates;

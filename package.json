@@ -1,18 +1,24 @@
 {
-  "name": "exchangerates",
+  "name": "exchange-rates-api",
   "version": "1.0.0",
   "description": "An API wrapper around exchangeratesapi.io",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha"
   },
   "author": "dn0z",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dn0z/exchange-rates.git"
+  },
   "license": "MIT",
   "dependencies": {
     "date-fns": "^1.30.1",
-    "node-fetch": "^2.6.0"
+    "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "fetch-mock": "^7.3.3",
+    "mocha": "^6.1.4"
   }
 }

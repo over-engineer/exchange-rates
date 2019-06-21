@@ -7,6 +7,7 @@
 * [Usage](#usage)
 * [Supported Currencies](#supported-currencies)
 * [Bugs & Features](#bugs-features)
+* [Unit Testing](#unit-testing)
 * [Dependencies](#dependencies)
 * [Credits](#credits)
 * [License](#license)
@@ -224,10 +225,20 @@ The library supports any currency currently available on the European Central Ba
 
 If you have spotted any bugs, or would like to request additional features from the library, please [file an issue](https://github.com/dn0z/exchange-rates/issues).
 
+## Unit Testing
+
+There are a few basic unit tests in the `test` directory, but [we should definitely write more](https://github.com/dn0z/exchange-rates/issues/2)
+
+**Development dependencies**
+
+* [Chai](https://www.chaijs.com/) — a BDD / TDD assertion library for node and the browser
+* [Mocha](https://mochajs.org/) — a feature-rich JavaScript test framework running on Node.js and in the browser
+* [fetch-mock](http://www.wheresrhys.co.uk/fetch-mock/) — allows mocking http requests made using fetch or a library imitating its api, such as node-fetch or fetch-ponyfill
+
 ## Dependencies
 
 * [date-fns](https://www.npmjs.com/package/date-fns) — Modern JavaScript date utility library
-* [node-fetch](https://www.npmjs.com/package/node-fetch) — A light-weight module that brings window.fetch to Node.js
+* [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch) — Isomorphic WHATWG Fetch API, for Node & Browserify
 
 ## Credits
 
