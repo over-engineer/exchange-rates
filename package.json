@@ -9,7 +9,7 @@
   "author": "dn0z",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dn0z/exchange-rates.git""
+    "url": "git+https://github.com/dn0z/exchange-rates.git"
   },
   "license": "MIT",
   "dependencies": {
