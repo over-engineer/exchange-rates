@@ -1,5 +1,5 @@
 {
-  "name": "exchangerates",
+  "name": "exchange-rates-api",
   "version": "1.0.0",
   "description": "An API wrapper around exchangeratesapi.io",
   "main": "src/index.js",
