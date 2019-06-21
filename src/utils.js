@@ -45,5 +45,5 @@ module.exports = {
      * @param {Date} date               An instance of Date
      * @return {string}                 The YYYY-MM-DD string
      */
-    formatDate: date => format(date, 'YYYY-MM-DD');
+    formatDate: date => format(date, 'YYYY-MM-DD')
 };
