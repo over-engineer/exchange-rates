@@ -1,3 +1,10 @@
+/**
+ * An API wrapper around exchangeratesapi.io
+ *
+ * @module exchange-rate-api
+ * @author dn0z
+ */
+
 require('isomorphic-fetch');
 const { getYear, isAfter } = require('date-fns');
 
@@ -8,6 +15,9 @@ const utils = require('./utils');
 
 const API_BASE_URL = 'https://api.exchangeratesapi.io';
 
+/**
+ * ExchangeRates
+ */
 class ExchangeRates {
     constructor() {
         this._base = null;          // base currency, defaults to 'EUR'
