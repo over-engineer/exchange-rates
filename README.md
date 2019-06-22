@@ -3,15 +3,15 @@
 
 ## Table of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Supported Currencies](#supported-currencies)
-* [Bugs & Features](#bugs-features)
-* [Documentation](#documentation)
-* [Unit Testing](#unit-testing)
-* [Dependencies](#dependencies)
-* [Credits](#credits)
-* [License](#license)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [Supported Currencies](#-supported-currencies)
+* [Bugs & Features](#-bugs-features)
+* [Documentation](#-documentation)
+* [Unit Testing](#-unit-testing)
+* [Dependencies](#-dependencies)
+* [Credits](#-credits)
+* [License](#-license)
 
 ## 📦 Installation
 
@@ -21,7 +21,7 @@ $ npm i exchange-rates-api
 
 ## ⌨️ Usage
 
-Once you [have installed the npm package](#installation) you can start using it immediately. [Exchange Rates API](https://exchangeratesapi.io/) does **not** require you to sign up, generate API keys etc.
+Once you [have installed the npm package](#-installation) you can start using it immediately. [Exchange Rates API](https://exchangeratesapi.io/) does **not** require you to sign up, generate API keys etc.
 
 ### Latest & specific date rates
 
