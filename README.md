@@ -7,18 +7,19 @@
 * [Usage](#usage)
 * [Supported Currencies](#supported-currencies)
 * [Bugs & Features](#bugs-features)
+* [Documentation](#documentation)
 * [Unit Testing](#unit-testing)
 * [Dependencies](#dependencies)
 * [Credits](#credits)
 * [License](#license)
 
-## Installation
+## 📦 Installation
 
 ```
 $ npm i exchange-rates-api
 ```
 
-## Usage
+## ⌨️ Usage
 
 Once you [have installed the npm package](#installation) you can start using it immediately. [Exchange Rates API](https://exchangeratesapi.io/) does **not** require you to sign up, generate API keys etc.
 
@@ -183,7 +184,7 @@ exchangeRates().at('1990-01-01').fetch()
     });
 ```
 
-## Supported Currencies
+## 💰 Supported Currencies
 
 The library supports any currency currently available on the European Central Bank's web service, which at the time of the latest release are as follows:
 
@@ -221,11 +222,20 @@ The library supports any currency currently available on the European Central Ba
 - Turkish Lira (TRY)
 - US Dollar (USD)
 
-## Bugs & Features
+## 🐞 Bugs & Features
 
 If you have spotted any bugs, or would like to request additional features from the library, please [file an issue](https://github.com/dn0z/exchange-rates/issues).
 
-## Unit Testing
+## 📚 Documentation
+
+- [Read the docs](https://dn0z.github.io/docs/exchange-rates-api/)
+- Generate them using jsdoc
+
+    ```
+    $ npm run docs
+    ```
+
+## 🧪 Unit Testing
 
 There are a few basic unit tests in the `test` directory, but [we should definitely write more](https://github.com/dn0z/exchange-rates/issues/2)
 
@@ -235,16 +245,16 @@ There are a few basic unit tests in the `test` directory, but [we should definit
 * [Mocha](https://mochajs.org/) — a feature-rich JavaScript test framework running on Node.js and in the browser
 * [fetch-mock](http://www.wheresrhys.co.uk/fetch-mock/) — allows mocking http requests made using fetch or a library imitating its api, such as node-fetch or fetch-ponyfill
 
-## Dependencies
+## 🗄 Dependencies
 
 * [date-fns](https://www.npmjs.com/package/date-fns) — Modern JavaScript date utility library
 * [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch) — Isomorphic WHATWG Fetch API, for Node & Browserify
 
-## Credits
+## 🎉 Credits
 
 - Thanks to [@madisvain](https://github.com/madisvain) and all of the [Exchange Rates API](https://github.com/exchangeratesapi/exchangeratesapi) contributors for creating this awesome API
 - A big chunk of this README was heavily ~stolen from~ inspired by [this repo](https://github.com/benmajor/ExchangeRatesAPI), an API wrapper for PHP
 
-## License
+## 📖 License
 
 The MIT License, check the `LICENSE` file
