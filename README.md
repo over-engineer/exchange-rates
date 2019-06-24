@@ -1,7 +1,7 @@
 # Exchange Rates
-![npm](https://img.shields.io/npm/v/exchange-rates-api.svg)
-![NPM](https://img.shields.io/npm/l/exchange-rates-api.svg)
-![Travis (.org)](https://img.shields.io/travis/dn0z/exchange-rates.svg)
+[![npm](https://img.shields.io/npm/v/exchange-rates-api.svg)](https://www.npmjs.com/package/exchange-rates-api)
+[![NPM](https://img.shields.io/npm/l/exchange-rates-api.svg)](https://github.com/dn0z/exchange-rates/blob/master/LICENSE)
+[![Travis (.org)](https://img.shields.io/travis/dn0z/exchange-rates.svg)](https://travis-ci.org/dn0z/exchange-rates)
 
 💰🌍 An unofficial [node.js](https://nodejs.org/) wrapper for the awesome and free [exchangeratesapi.io](https://exchangeratesapi.io/), which provides exchange rate lookups courtesy of the [Central European Bank](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html).
 
