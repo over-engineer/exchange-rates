@@ -2,7 +2,7 @@
  * An API wrapper around exchangeratesapi.io
  *
  * @module exchange-rate-api
- * @author dn0z
+ * @author over-engineer
  */
 
 require('isomorphic-fetch');

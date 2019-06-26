@@ -1,7 +1,7 @@
 # Exchange Rates
 [![npm](https://img.shields.io/npm/v/exchange-rates-api.svg)](https://www.npmjs.com/package/exchange-rates-api)
-[![NPM](https://img.shields.io/npm/l/exchange-rates-api.svg)](https://github.com/dn0z/exchange-rates/blob/master/LICENSE)
-[![Travis (.org)](https://img.shields.io/travis/dn0z/exchange-rates.svg)](https://travis-ci.org/dn0z/exchange-rates)
+[![NPM](https://img.shields.io/npm/l/exchange-rates-api.svg)](https://github.com/over-engineer/exchange-rates/blob/master/LICENSE)
+[![Travis (.org)](https://img.shields.io/travis/over-engineer/exchange-rates.svg)](https://travis-ci.org/over-engineer/exchange-rates)
 
 💰🌍 An unofficial [node.js](https://nodejs.org/) wrapper for the awesome and free [exchangeratesapi.io](https://exchangeratesapi.io/), which provides exchange rate lookups courtesy of the [Central European Bank](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html).
 
@@ -228,11 +228,11 @@ The library supports any currency currently available on the European Central Ba
 
 ## 🐞 Bugs & Features
 
-If you have spotted any bugs, or would like to request additional features from the library, please [file an issue](https://github.com/dn0z/exchange-rates/issues).
+If you have spotted any bugs, or would like to request additional features from the library, please [file an issue](https://github.com/over-engineer/exchange-rates/issues).
 
 ## 📚 Documentation
 
-- [Read the docs](https://dn0z.github.io/docs/exchange-rates-api/)
+- [Read the docs](https://over-engineer.github.io/docs/exchange-rates-api/)
 - Generate them using jsdoc
 
     ```
@@ -241,7 +241,7 @@ If you have spotted any bugs, or would like to request additional features from 
 
 ## 🧪 Unit Testing
 
-There are a few basic unit tests in the `test` directory, but [we should definitely write more](https://github.com/dn0z/exchange-rates/issues/2)
+There are a few basic unit tests in the `test` directory, but [we should definitely write more](https://github.com/over-engineer/exchange-rates/issues/2)
 
 **Development dependencies**
 
