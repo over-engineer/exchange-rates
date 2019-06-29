@@ -7,7 +7,7 @@
     "test": "NODE_ENV=test mocha",
     "docs": "./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.conf.json"
   },
-  "author": "dn0z",
+  "author": "over-engineer",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/over-engineer/exchange-rates.git"
