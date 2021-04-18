@@ -17,12 +17,12 @@ describe('Fetch the latest exchange rates', function() {
 
     describe('#latest()', function() {
         beforeEach(function() {
-            fetchMock.mock('https://api.exchangeratesapi.io/latest', getMockResponse('latest'));
+            fetchMock.mock('https://api.ratesapi.io/latest', getMockResponse('latest'));
         });
 
         it('Should request /latest', async function() {
             await exchangeRates().latest().fetch();
-            expect(fetchMock.called('https://api.exchangeratesapi.io/latest')).to.be.true;
+            expect(fetchMock.called('https://api.ratesapi.io/latest')).to.be.true;
         });
 
         it('Should eventually return an object', async function() {
@@ -41,9 +41,37 @@ describe('Fetch the latest exchange rates', function() {
     });
 });
 
+describe('Using a different API', function() {
+    beforeEach(function() {
+        fetchMock.mock('https://api.exchangerate.host/latest', getMockResponse('latest'));
+    });
+
+    afterEach(function() {
+        fetchMock.restore();
+    });
+
+    it('Should switch to api.exchangerate.host', async function() {
+        await exchangeRates()
+            .setApiBaseUrl('https://api.exchangerate.host')
+            .latest()
+            .fetch();
+
+        expect(fetchMock.called('https://api.exchangerate.host/latest')).to.be.true;
+    });
+
+    it('Should accept API base urls with trailing slashes', async function() {
+        await exchangeRates()
+            .setApiBaseUrl('https://api.exchangerate.host/')
+            .latest()
+            .fetch();
+
+        expect(fetchMock.called('https://api.exchangerate.host/latest')).to.be.true;
+    });
+});
+
 describe('Fetch historic rates for a specific time period', function() {
     beforeEach(function() {
-        fetchMock.mock(/^https:\/\/api.exchangeratesapi.io\/history(.*)/, getMockResponse('history'));
+        fetchMock.mock(/^https:\/\/api.ratesapi.io\/history(.*)/, getMockResponse('history'));
     });
 
     afterEach(function() {
@@ -52,26 +80,26 @@ describe('Fetch historic rates for a specific time period', function() {
 
     it('Should pass the specified \'start_at\' and \'end_at\' parameters for ISO 8601 dates', async function() {
         await exchangeRates().from('2018-06-01').to('2018-06-21').fetch();
-        expect(fetchMock.lastUrl(/^https:\/\/api.exchangeratesapi.io\/history(.*)/))
-            .to.equal('https://api.exchangeratesapi.io/history?start_at=2018-06-01&end_at=2018-06-21');
+        expect(fetchMock.lastUrl(/^https:\/\/api.ratesapi.io\/history(.*)/))
+            .to.equal('https://api.ratesapi.io/history?start_at=2018-06-01&end_at=2018-06-21');
     });
 
     it('Should pass the specified \'start_at\' and \'end_at\' parameters for date objects', async function() {
         await exchangeRates().from(new Date(2018, 5, 1)).to(new Date(2018, 5, 14)).fetch();
-        expect(fetchMock.lastUrl(/^https:\/\/api.exchangeratesapi.io\/history(.*)/))
-            .to.equal('https://api.exchangeratesapi.io/history?start_at=2018-06-01&end_at=2018-06-14');
+        expect(fetchMock.lastUrl(/^https:\/\/api.ratesapi.io\/history(.*)/))
+            .to.equal('https://api.ratesapi.io/history?start_at=2018-06-01&end_at=2018-06-14');
     });
 
     it('Should pass the specified \'start_at\' and \'end_at\' parameters for date strings', async function() {
         await exchangeRates().from('June 1, 2018').to('June 18, 2018').fetch();
-        expect(fetchMock.lastUrl(/^https:\/\/api.exchangeratesapi.io\/history(.*)/))
-            .to.equal('https://api.exchangeratesapi.io/history?start_at=2018-06-01&end_at=2018-06-18');
+        expect(fetchMock.lastUrl(/^https:\/\/api.ratesapi.io\/history(.*)/))
+            .to.equal('https://api.ratesapi.io/history?start_at=2018-06-01&end_at=2018-06-18');
     });
 });
 
 describe('Error handling', function() {
     beforeEach(function() {
-        fetchMock.mock(/^https:\/\/api.exchangeratesapi.io\/history(.*)/, getMockResponse('history'));
+        fetchMock.mock(/^https:\/\/api.ratesapi.io\/history(.*)/, getMockResponse('history'));
     });
 
     it('Should throw an error if \'to\' is set, but \'from\' isn\'t', async function() {
@@ -106,6 +134,8 @@ describe('Error handling', function() {
         } catch (err) {
             error = err;
         }
+
+        expect(error).to.have.property('name', 'ExchangeRatesError');
     });
 });
 
