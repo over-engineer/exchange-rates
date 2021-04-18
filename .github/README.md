@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="128" height="128" src="assets/icon.svg" alt="icon" />
+    <img width="128" height="128" src="../assets/icon.svg" alt="icon" />
 </p>
 
 # Exchange Rates
