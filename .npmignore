@@ -1,2 +1,4 @@
 .eslintrc.js
 .travis.yml
+.github
+assets/icon.svg
