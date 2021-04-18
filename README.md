@@ -1,3 +1,7 @@
+<p align="center">
+    <img width="128" height="128" src="assets/icon.svg" alt="icon" />
+</p>
+
 # Exchange Rates
 [![npm](https://img.shields.io/npm/v/exchange-rates-api.svg)](https://www.npmjs.com/package/exchange-rates-api)
 [![NPM](https://img.shields.io/npm/l/exchange-rates-api.svg)](https://github.com/over-engineer/exchange-rates/blob/master/LICENSE)
