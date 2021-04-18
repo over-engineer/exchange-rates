@@ -7,7 +7,7 @@
 [![NPM](https://img.shields.io/npm/l/exchange-rates-api.svg)](https://github.com/over-engineer/exchange-rates/blob/master/LICENSE)
 [![Travis (.org)](https://img.shields.io/travis/over-engineer/exchange-rates.svg)](https://travis-ci.org/over-engineer/exchange-rates)
 
-💰🌍 An unofficial [node.js](https://nodejs.org/) wrapper for the awesome and free [exchangeratesapi.io](https://exchangeratesapi.io/), which provides exchange rate lookups courtesy of the [Central European Bank](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html).
+💰🌍 An unofficial [node.js](https://nodejs.org/) wrapper for the awesome and free [ratesapi.io](https://ratesapi.io/), which provides exchange rate lookups courtesy of the [Central European Bank](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html).
 
 ## Table of Contents
 
@@ -18,7 +18,6 @@
 * [Documentation](#-documentation)
 * [Unit Testing](#-unit-testing)
 * [Dependencies](#-dependencies)
-* [Credits](#-credits)
 * [License](#-license)
 
 ## 📦 Installation
@@ -29,14 +28,14 @@ $ npm i exchange-rates-api
 
 ## ⌨️ Usage
 
-Once you [have installed the npm package](#-installation) you can start using it immediately. [Exchange Rates API](https://exchangeratesapi.io/) does **not** require you to sign up, generate API keys etc.
+Once you [have installed the npm package](#-installation) you can start using it immediately. [Rates API](https://ratesapi.io/) does **not** require you to sign up, generate API keys etc.
 
 ### Latest & specific date rates
 
 ```javascript
 const { exchangeRates } = require('exchange-rates-api');
 
-const example = async () => {
+(async () => {
     // Get the latest exchange rates
     await exchangeRates().latest().fetch();                             // {THB: 34.978, PHP: 58.159, …, HUF: 323.58}
 
@@ -51,9 +50,7 @@ const example = async () => {
 
     // Request one specific exchange rate
     await exchangeRates().latest().symbols('USD').fetch();              // 1.1307
-};
-
-example();
+})();
 ```
 
 ### Rates history
@@ -61,7 +58,7 @@ example();
 ```javascript
 const { exchangeRates } = require('exchange-rates-api');
 
-const example = async () => {
+(async () => {
     // Get historical rates for a time period
     await exchangeRates().from('2018-01-01').to('2018-09-01').fetch();
     // outputs: { '2018-02-28': { THB: 38.613, …, HUF: 313.97 }, …, { '2018-06-07': { … } } }
@@ -74,9 +71,7 @@ const example = async () => {
 
     // Quote the historical rates against a different currency
     await exchangeRates().from('2018-01-01').to('2018-09-01').base('USD');
-};
-
-example();
+})();
 ```
 
 ### Different ways to pass a date
@@ -84,7 +79,7 @@ example();
 ```javascript
 const { exchangeRates } = require('exchange-rates-api');
 
-const example = async () => {
+(async () => {
     // Pass an YYYY-MM-DD (ISO 8601) string
     await exchangeRates().at('2018-09-01').fetch();
 
@@ -93,9 +88,7 @@ const example = async () => {
 
     // Pass a Date object
     await exchangeRates().at(new Date(2019, 8, 1)).fetch();
-};
-
-example();
+})();
 ```
 
 ### Currencies object
@@ -103,14 +96,12 @@ example();
 ```javascript
 const { exchangeRates, currencies } = require('exchange-rates-api');
 
-const example = async () => {
+(async () => {
     await exchangeRates().latest()
         .base(currencies.USD)
         .symbols([currencies.EUR, currencies.GBP])
         .fetch();
-};
-
-example();
+})();
 ```
 
 ### Average rate for a specific time period
@@ -118,7 +109,7 @@ example();
 ```javascript
 const { exchangeRates } = require('exchange-rates-api');
 
-const example = async () => {
+(async () => {
     // Find the average exchange rate for January, 2018
     await exchangeRates()
         .from('2018-01-01').to('2018-01-31')
@@ -130,9 +121,7 @@ const example = async () => {
         .from('2018-01-01').to('2018-01-31')
         .base('USD').symbols(['EUR', 'GBP'])
         .avg(2);    // { EUR: 0.84, GBP: 0.74 }
-};
-
-example();
+})();
 ```
 
 ### Convert
@@ -140,12 +129,10 @@ example();
 ```javascript
 const { convert } = require('exchange-rates-api');
 
-const example = async () => {
+(async () => {
     let amount = await convert(2000, 'USD', 'EUR', '2018-01-01');
     console.log(amount);    // 1667.6394564000002
-};
-
-example();
+})();
 ```
 
 ### API URL
@@ -160,7 +147,22 @@ let url = exchangeRates()
     .url;
 
 console.log(url);
-// https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD&symbols=EUR,GBP
+// https://api.ratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD&symbols=EUR,GBP
+```
+
+### Using a different API
+
+```javascript
+const { exchangeRates } = require('exchange-rates-api');
+
+/* You can use it with pretty much any Fixer.io-compatible API */
+
+(async () => {
+    await exchangeRates()
+        .setApiBaseUrl('https://api.exchangerate.host')
+        .latest()
+        .fetch();    // {THB: 34.978, PHP: 58.159, …, HUF: 323.58}
+})();
 ```
 
 ### Error handling
@@ -172,7 +174,7 @@ const { exchangeRates } = require('exchange-rates-api');
  * sometimes, so you might want to handle them */
 
 // async/await syntax
-const example = async () => {
+(async () => {
     try {
         /* This will throw an `ExchangeRateError` with the error
          * message 'Cannot get historical rates before 1999' */
@@ -180,9 +182,7 @@ const example = async () => {
     } catch (error) {
         // Handle the error
     }
-};
-
-example();
+})();
 
 // Promises syntax
 exchangeRates().at('1990-01-01').fetch()
@@ -257,11 +257,6 @@ There are a few basic unit tests in the `test` directory, but [we should definit
 
 * [date-fns](https://www.npmjs.com/package/date-fns) — Modern JavaScript date utility library
 * [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch) — Isomorphic WHATWG Fetch API, for Node & Browserify
-
-## 🎉 Credits
-
-- Thanks to [@madisvain](https://github.com/madisvain) and all of the [Exchange Rates API](https://github.com/exchangeratesapi/exchangeratesapi) contributors for creating this awesome API
-- A big chunk of this README was heavily ~stolen from~ inspired by [this repo](https://github.com/benmajor/ExchangeRatesAPI), an API wrapper for PHP
 
 ## 📖 License
 
