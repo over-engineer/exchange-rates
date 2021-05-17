@@ -34,6 +34,9 @@ class ExchangeRates {
 
     // Date to which to request historical rates
     this._to = null;
+
+    // API key
+    this._key = null;
   }
 
   /**
@@ -86,6 +89,10 @@ class ExchangeRates {
     let url = `${this._api_base_url}/`;
     const qs = new QueryStringBuilder();
 
+    if (this._key) {
+      qs.addParam('access_key', this._key);
+    }
+
     if (this._isHistoryRequest()) {
       url += 'history';
       qs.addParam('start_at', utils.formatDate(this._from));
@@ -113,6 +120,16 @@ class ExchangeRates {
   setApiBaseUrl(url) {
     this._api_base_url = utils.untrailingSlashIt(url);
     return this; // chainable
+  }
+
+  /**
+   * Set the API key
+   *
+   * @param {string} key                 API key
+   */
+  setApiKey(key) {
+    this._key = key;
+    return this;
   }
 
   /**

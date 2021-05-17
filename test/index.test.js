@@ -39,6 +39,19 @@ describe('Fetch the latest exchange rates', function() {
                 .every(rate => expect(rate).to.be.a('number'));
         });
     });
+
+    describe('Using API key', function () {
+        const key = 'key';
+
+        beforeEach(function() {
+            fetchMock.mock(`https://api.ratesapi.io/latest?access_key=${key}`, getMockResponse('latest'));
+        });
+
+        it('Should request latest', async function () {
+            await exchangeRates().setApiKey(key).latest().fetch();
+            expect(fetchMock.called(`https://api.ratesapi.io/latest?access_key=${key}`)).to.be.true;
+        })
+    })
 });
 
 describe('Using a different API', function() {
